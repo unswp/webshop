@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "Base Font";
+  src: url("libmono.ttf");
+}
+@font-face {
+  font-family: "Base Font";
+  src: url("twemoji-colr.ttf"),
+       url("twemoji-svginot.ttf");
+  unicode-range: U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF, U+2600-26FF;
+}
+body, a, p, b, i, strong, em, li, table, td, tr, th {
+   background-color: #E4E4E4;
+   color: #000000;
+   font-family: "Base Font";
+   font-size: 12pt;
+}
+h1 {
+   background-color: #E4E4E4;
+   color: #000000;
+   font-family: "Base Font";
+   font-weight: normal;
+   font-size: 24pt;
+}
+h2 {
+   background-color: #E4E4E4;
+   color: #000000;
+   font-family: "Base Font";
+   font-weight: normal;
+   font-size: 22pt;
+}
+input, select, textarea {
+   background-color: #E4E4E4;
+   color: #000000;
+   font-family: "Base Font";
+   font-weight: normal;
+   font-size: 14pt;
+}
+label {
+   background-color: #E4E4E4;
+   color: #000000;
+   font-family: "Base Font";
+   font-size: 14pt;
+}
