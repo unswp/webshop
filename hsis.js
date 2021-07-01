@@ -27,6 +27,10 @@ function execute() {
     // Go to HSIS home page
     // home // hsis
     window.location.href = 'hsis.php';
+  } else if (command.value == 'index' || command.value == 'main') {
+    // Go to the entity index page
+    // index // main
+    window.location.href = '#';
   } else if (command.value == 'info' || command.value == 'details') {
     // Get current entity info
     // info // details
