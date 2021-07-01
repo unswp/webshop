@@ -15,3 +15,4 @@ file_put_contents('apps.list', $apps);
 chmod('apps.list', 0777);
 chmod($pkg.'.pkg', 0777);
 unlink($pkg.'.pkg');
+header("Location: hsis.php");
