@@ -30,7 +30,8 @@ function execute() {
   } else if (command.value == 'index' || command.value == 'main') {
     // Go to the entity index page
     // index // main
-    window.location.href = '#';
+    var ret = window.location.href.replace('/hsis.php','');
+    window.location.href = ret + '/#';
   } else if (command.value == 'info' || command.value == 'details') {
     // Get current entity info
     // info // details
