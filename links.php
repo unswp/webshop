@@ -1,28 +1,27 @@
+<?php include 'incl.php'; ?>
 <?php
-$dir = '.';
 $list = str_replace($dir.'/','',(glob($dir.'/*.uri')));
 ?>
 <html>
 <head>
-<link rel="shortcut icon" href="link.png?rev=<?=time();?>" type="image/x-icon">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
+<?php include 'incl.php'; ?>
 <title>Links</title>
-<link rel="stylesheet" type="text/css" href="style.css?rev=<?=time();?>">
-<?php include 'top.php'; ?>
+<link rel="shortcut icon" href="link.png?rev=<?=time();?>" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="wsui.css?rev=<?=time();?>">
+<?php include 'wpload.php'; ?>
 <style>
 table, td, th, tr {
   text-align: center;
 }
 </style>
-<script src="sort.js?rev=<?=time();?>" type="text/javascript">
 </script>
 <script>
 function add(str) {
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
-  } else {  // code for IE6, IE5
+  } else {
+    // code for IE6, IE5
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
   xmlhttp.onreadystatechange=function() {
@@ -30,7 +29,7 @@ function add(str) {
       document.location.reload();
     }
   };
-  xmlhttp.open("POST","link.add.php?str="+str,true);
+  xmlhttp.open("POST","adlink.php?str="+str,true);
   xmlhttp.send();
 }
 function remove(id) {
@@ -45,17 +44,16 @@ function remove(id) {
       document.location.reload();
     }
   };
-  xmlhttp.open("POST","link.rem.php?id="+id,true);
+  xmlhttp.open("POST","rmlink.php?id="+id,true);
   xmlhttp.send();
 }
 </script>
 </head>
-<?php include 'panel.php'; ?>
 <div class='window'>
 <div class='front'>
 <label>Add link: </label>
 <input id="newlink" placeholder="id>title>uri" type="text" style="width:60%;">
-<input id="addButton" title="Add" class='east' onclick="add(newlink.value);" type="button" value="+" style="width:30px;" />
+<input id="addButton" title="Add" class='east' onclick="add(newlink.value);" type="button" value="+" style="width:30px;">
 </div>
 <div class='full'>
 <table id="table" width="100%">

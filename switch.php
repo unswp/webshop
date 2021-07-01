@@ -1,16 +1,17 @@
+<?php include 'incl.php'; ?>
 <?php
 $mode = file_get_contents('mode');
 if (file_exists('noedit')) {} else {
 ?>
 <html>
 <head>
-<?php include 'incl.php'; ?>
+<?php include 'libs.php'; ?>
 <title>Switch Mode</title>
-<link rel="shortcut icon" href="hcli.png?rev=<?=time();?>" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="hcli.css?rev=<?=time();?>">
+<link rel="shortcut icon" href="switch.png?rev=<?=time();?>" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="<?=$viewmode.'cli.css';?>?rev=<?=time();?>">
 </head>
 <body>
-<?='HSIS Web Console started';?>
+<?='WebHSIS Console started';?>
 <p></p>
 <?='Preparing to switch the entity mode';?>
 <br>

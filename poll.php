@@ -1,3 +1,4 @@
+<?php include 'incl.php'; ?>
 <?php
 $catName = $_REQUEST['name'];
 $catOpen = file_get_contents($catName);
@@ -8,10 +9,10 @@ $select = $catExp[1];
 ?>
 <html>
 <head>
-<?php include 'incl.php'; ?>
+<?php include 'libs.php'; ?>
 <title>Vote</title>
 <link rel="shortcut icon" href="poll.png?rev=<?=time();?>" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="hgui.css?rev=<?=time();?>">
+<link rel="stylesheet" type="text/css" href="<?=$viewmode.'.css';?>?rev=<?=time();?>">
 <script>
 function vote(id) {
   if (window.XMLHttpRequest) {

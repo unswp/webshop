@@ -1,3 +1,4 @@
+<?php include 'incl.php'; ?>
 <?php
 date_default_timezone_set('UTC');
 $props = file_get_contents('info.list');
@@ -6,10 +7,10 @@ $system = file_get_contents('system');
 ?>
 <html>
 <head>
-<?php include 'incl.php'; ?>
+<?php include 'libs.php'; ?>
 <title>Entity Info</title>
-<link rel="shortcut icon" href="hcli.png?rev=<?=time();?>" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="hcli.css?rev=<?=time();?>">
+<link rel="shortcut icon" href="info.png?rev=<?=time();?>" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="<?=$viewmode.'cli.css';?>?rev=<?=time();?>">
 </head>
 <body>
 <p>

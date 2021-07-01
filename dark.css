@@ -1,0 +1,260 @@
+@font-face {
+  font-family: "Base Font";
+  src: url("gui.ttf");
+}
+@font-face {
+  font-family: "Console Font";
+  src: url("cli.ttf");
+}
+@font-face {
+  font-family: "Base Font";
+  src: url("emjcolr.ttf"),
+       url("emjsvginot.ttf");
+  unicode-range: U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF, U+2600-26FF;
+}
+body {
+   background-color: #000000;
+   color: #FFFFFF;
+   font-family: "Base Font";
+   font-size: 14pt;
+}
+font, a, p, b, i, strong, em, li, table, td, tr, th {
+   color: #FFFFFF;
+   font-family: "Base Font";
+   font-size: 14pt;
+}
+input, select, textarea {
+   color: #000000;
+   font-family: "Base Font";
+   font-size: 14pt;
+}
+h1 {
+   color: #FFFFFF;
+   font-family: "Base Font";
+   font-weight: normal;
+   font-size: 26pt;
+}
+h2 {
+   color: #FFFFFF;
+   font-family: "Base Font";
+   font-weight: normal;
+   font-size: 20pt;
+}
+.large {
+   color: #FFFFFF;
+   font-family: "Base Font";
+   font-size: 16pt;
+}
+.huge {
+   color: #FFFFFF;
+   font-family: "Base Font";
+   font-size: 20pt;
+}
+.console {
+   color: #FFFFFF;
+   font-family: "Console Font";
+   font-size: 14pt;
+}
+.hover {
+   opacity: 1;
+}
+.hover:hover {
+   opacity: 0.5;
+}
+.icon {
+  position: relative;
+  float: left;
+}
+.top {
+  border: none;
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  top: 0%;
+}
+.panel {
+  border: none;
+  position: absolute;
+  width: 98%;
+  height: 90%;
+  top: 10%;
+  overflow-y: scroll;
+}
+.image {
+  border: none;
+  position: relative;
+  opacity: 1;
+}
+.image:hover {
+  border: none;
+  position: relative;
+  opacity: 0.5;
+}
+.east {
+   background-color: #009F4B;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 1;
+}
+.south {
+   background-color: #D83D48;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 1;
+}
+.west {
+   background-color: #DDAB00;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 1;
+}
+.north {
+   background-color: #2264C8;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 1;
+}
+.center {
+   background-color: #5F677A;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 1;
+}
+.light {
+   background-color: #939393;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 1;
+}
+.dark {
+   background-color: #404552;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 1;
+}
+.east:hover {
+   background-color: #009F4B;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 0.5;
+}
+.south:hover {
+   background-color: #D83D48;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 0.5;
+}
+.west:hover {
+   background-color: #DDAB00;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 0.5;
+}
+.north:hover {
+   background-color: #2264C8;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 0.5;
+}
+.center:hover {
+   background-color: #5F677A;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 0.5;
+}
+.light:hover {
+   background-color: #939393;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 0.5;
+}
+.dark:hover {
+   background-color: #404552;
+   color: #FFFFFF;
+   border: none;
+   text-align: center;
+   position: relative;
+   font-family: "Base Font";
+   font-size: 20pt;
+   opacity: 0.5;
+}
+.gray {
+   color: #939393;
+   font-family: "Base Font";
+}
+.grayLight {
+   color: #939393;
+   font-family: "Base Font";
+}
+.grayDark {
+   color: #404552;
+   font-family: "Base Font";
+}
+.red {
+   color: #D83D48;
+   font-family: "Base Font";
+}
+.yellow {
+   color: #DDAB00;
+   font-family: "Base Font";
+}
+.green {
+   color: #009F4B;
+   font-family: "Base Font";
+}
+.blue {
+   color: #2264C8;
+   font-family: "Base Font";
+}

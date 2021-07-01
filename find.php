@@ -48,17 +48,17 @@ if ($mimetype == "inode/directory" || $mimetype == "directory") {
     $icon = 'app.png';
     $type = 'app';
 } elseif ($mimetype == "font/ttf") {
-    $icon = 'app.png';
-    $type = 'app';
+    $icon = 'font.png';
+    $type = 'font';
 } elseif ($mimetype == "font/otf") {
-    $icon = 'app.png';
-    $type = 'app';
+    $icon = 'font.png';
+    $type = 'font';
 } elseif ($mimetype == "font/woff2") {
-    $icon = 'app.png';
-    $type = 'app';
+    $icon = 'font.png';
+    $type = 'font';
 } elseif ($mimetype == "font/sfnt") {
-    $icon = 'app.png';
-    $type = 'app';
+    $icon = 'font.png';
+    $type = 'font';
 } elseif ($mimetype == "application/vnd.ms-opentype") {
     $icon = 'app.png';
     $type = 'app';
@@ -330,6 +330,8 @@ if ($extension == 'uri') {
 }
 if ($type == 'text') {
     $link = 'edit.php?name='.$value;
+} elseif ($type == 'directory') {
+    $link = $value.'/hsis.php';
 } elseif ($type == 'image') {
     $link = $value;
 } elseif ($type == 'music') {
@@ -340,17 +342,13 @@ if ($type == 'text') {
     $link = "javascript:playMIDI('".$value."');";
 } elseif ($type == 'video') {
     $link = 'watch.php?name='.$value;
+} elseif ($type == 'font') {
+    $link = 'font.php?name='.$value;
 } elseif ($type == 'app') {
     $link = $value;
 } elseif ($type == 'package') {
     $pkgBase = basename($value, '.pkg');
-    $link = 'pkginfo.php?pkg='.$pkgBase;
-} elseif ($type == 'post') {
-    $link = 'read.php?name='.$value;
-} elseif ($type == 'book') {
-    $link = 'read.php?name='.$value;
-} elseif ($type == 'slot') {
-    $link = 'slot.php?name='.$value;
+    $link = 'remove.php?pkg='.$pkgBase;
 } elseif ($type == 'poll') {
     $link = 'poll.php?name='.$value;
 } elseif ($type == 'value') {

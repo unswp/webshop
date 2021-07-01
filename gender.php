@@ -1,13 +1,14 @@
+<?php include 'incl.php'; ?>
 <?php
 $gender = file_get_contents('gender');
 if (file_exists('noedit')) {} else {
 ?>
 <html>
 <head>
-<?php include 'incl.php'; ?>
+<?php include 'libs.php'; ?>
 <title>Switch Gender</title>
-<link rel="shortcut icon" href="hcli.png?rev=<?=time();?>" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="hcli.css?rev=<?=time();?>">
+<link rel="shortcut icon" href="cli.png?rev=<?=time();?>" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="<?=$viewmode.'cli.css';?>?rev=<?=time();?>">
 </head>
 <body>
 <?='HSIS Web Console started';?>

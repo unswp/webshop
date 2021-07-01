@@ -1,3 +1,4 @@
+<?php include 'incl.php'; ?>
 <?php
 $dir = dirname(__FILE__);
 $entity = basename($dir);
@@ -5,13 +6,13 @@ if (file_exists('noedit')) {} else {
 ?>
 <html>
 <head>
-<?php include 'incl.php'; ?>
+<?php include 'libs.php'; ?>
 <title>Remove This Entity</title>
-<link rel="shortcut icon" href="hcli.png?rev=<?=time();?>" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="hcli.css?rev=<?=time();?>">
+<link rel="shortcut icon" href="danger.png?rev=<?=time();?>" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="<?=$viewmode.'cli.css';?>?rev=<?=time();?>">
 </head>
 <body>
-<?='HSIS Web Console started!';?>
+<?='WebHSIS Console started!';?>
 <br>
 <?php
 echo 'Removing '.$entity.'...'; ?>

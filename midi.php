@@ -1,16 +1,14 @@
+<?php include 'incl.php'; ?>
 <?php
-$dir = '.';
 $list = str_replace($dir.'/','',(glob($dir.'/*.{mid,midi,rmi}', GLOB_BRACE)));
 ?>
 <html>
 <head>
-<link rel="shortcut icon" href="midi.png?rev=<?=time();?>" type="image/x-icon">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
+<?php include 'libs.php'; ?>
 <title>MIDI Player</title>
-<link rel="stylesheet" type="text/css" href="style.css?rev=<?=time();?>">
-<?php include 'top.php'; ?>
-<script src='http://www.midijs.net/lib/midi.js'></script>
+<link rel="shortcut icon" href="midi.png?rev=<?=time();?>" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="wsui.css?rev=<?=time();?>">
+<?php include 'wpload.php'; ?>
 <script>
 function play(id) {
   MIDIjs.play(id);
@@ -20,7 +18,6 @@ function pause(id) {
 }
 </script>
 </head>
-<?php include 'panel.php'; ?>
 <div class="window">
 <table width="100%">
 <thead>
@@ -31,9 +28,7 @@ function pause(id) {
 </tr>
 </thead>
 <tbody>
-<?php
-foreach ($list as $key=>$value) {
-?>
+<?php foreach ($list as $key=>$value) { ?>
     <tr>
     <td>
     <a href="midi.png">

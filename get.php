@@ -43,12 +43,6 @@ if ($pkg != "" && $dist != "") {
         foreach ($files as $file) {
             if (strpos($file, '>') !== false) {
                 $apps = $apps.$file.';';
-            } elseif (strpos($file, '~') !== false) {
-                $newfile = str_replace('~', '', $file);
-                if (file_exists($newfile.'.bak')) {
-                    rename($newfile.'.bak', $newfile);
-                    chmod($newfile, 0777);
-                }
             }
         }
         // Saving list of apps

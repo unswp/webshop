@@ -1,16 +1,15 @@
+<?php include 'incl.php'; ?>
 <?php
-$dir = '.';
 $index = file_get_contents('video.index');
 $list = str_replace($dir.'/','',(glob($dir.'/*.{'.$index.'}', GLOB_BRACE)));
 ?>
 <html>
 <head>
-<link rel="shortcut icon" href="video.png?rev=<?=time();?>" type="image/x-icon">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
+<?php include 'libs.php'; ?>
 <title>Videos</title>
-<link rel="stylesheet" type="text/css" href="style.css?rev=<?=time();?>">
-<?php include 'top.php'; ?>
+<link rel="shortcut icon" href="video.png?rev=<?=time();?>" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="wsui.css?rev=<?=time();?>">
+<?php include 'wpload.php'; ?>
 <style>
 table, td, th, tr {
   text-align: center;
@@ -28,7 +27,6 @@ function pause(id) {
 }
 </script>
 </head>
-<?php include 'panel.php'; ?>
 <div class="window">
 <div class="scene">
 <video width=100% height=100% id="video" controls></video>

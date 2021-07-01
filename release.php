@@ -1,15 +1,10 @@
-<?php
-$platform = file_get_contents('platform');
-$version = file_get_contents('version');
-$release = file_get_contents('release.txt');
-$reldel = explode(' =//= ', $release);
-?>
+<?php include 'incl.php'; ?>
 <html>
 <head>
-<?php include 'incl.php'; ?>
+<?php include 'libs.php'; ?>
 <title>Release File</title>
-<link rel="shortcut icon" href="hsis.png?rev=<?=time();?>" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="hgui.css?rev=<?=time();?>">
+<link rel="shortcut icon" href="text.png?rev=<?=time();?>" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="<?=$viewmode.'.css';?>?rev=<?=time();?>">
 </head>
 <body>
 <h1><?=$platform;?> <?=$version;?>: What's New?</h1>

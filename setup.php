@@ -1,42 +1,52 @@
 <?php
-$getPkgCfg = file_get_contents('get.cfg');
-$explode = explode('/', $getPkgCfg);
-$openpkg = $explode[1];
-$opendist = $explode[0];
-?>
-<html>
-<head>
-<?php include 'incl.php'; ?>
-<title>Switch Platform</title>
-<link rel="shortcut icon" href="hsis.png?rev=<?=time();?>" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="hgui.css?rev=<?=time();?>">
-<script>
-function get(pkg, dist) {
-  pkg = document.getElementById('pkg').value;
-  dist = document.getElementById('dist').value;
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
-  } else {  // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-       window.location.href = "hsis.php";
+$pkg = $_REQUEST['pkg'];
+$dist = $_REQUEST['dist'];
+// Make sure pkg and dist fields are not empty to prevent this script from going haywire, moving system files to the current directory.
+if ($pkg != "" && $dist != "") {
+    // Backing up important data
+    $backupList = file_get_contents('backup.list');
+    $backup = explode(';', $backupList);
+    foreach ($backup as $key=>$file) {
+        if (file_exists($file)) {
+            rename($file, $file.'.bak');
+            chmod($file.'.bak', 0777);
+        }
     }
-  }
-  xmlhttp.open("POST","install.php?pkg="+pkg+"&dist="+dist,true);
-  xmlhttp.send();
+    // Removing the current platform
+    if (file_exists('install.list')) {
+        $installList = file_get_contents('install.list');
+        $install = explode(';', $installList);
+        foreach ($install as $key=>$file) {
+            if (file_exists($file)) {
+                chmod($file, 0777);
+                unlink($file);
+            }
+        }
+    }
+    // Download custom platform repository
+    $gitRequest = 'https://www.github.com/'.$dist.'/'.$pkg;
+    exec('git clone '.$gitRequest);
+    chmod($pkg, 0777);
+    exec('mv '.$pkg.'/* $PWD');
+    exec('chmod -R 777 .');
+    exec('rm -rf '.$pkg);
+    // Removing source Readme file
+    if (file_exists('readme.md')) {
+        chmod('readme.md', 0777);
+        unlink('readme.md');
+    }
+    if (file_exists('README.md')) {
+        chmod('README.md', 0777);
+        unlink('README.md');
+    }
+    // Restoring files from backups
+    foreach ($backup as $key=>$file) {
+        if (file_exists($file.'.bak')) {
+            rename($file.'.bak', $file);
+            chmod($file, 0777);
+        }
+    }
+    // Saving get package config file
+    file_put_contents('get.cfg', $dist.'/'.$pkg);
+    chmod('get.cfg', 0777);
 }
-</script>
-</head>
-<body>
-<h1>Reinstall to custom platform</h1>
-<label>Package ID:</label>
-<input class="text" size=30 id="pkg" style="width:60%;" type="text" value="<?=$openpkg;?>"><br>
-<label>Distributor:</label>
-<input class="text" size=30 id="dist" style="width:60%;" type="text" value="<?=$opendist;?>"><p>
-<input class="east" type="button" style="width:250px;height:40px;" value="Submit" onclick="get();">
-<input class="center" type="button" style="width:130px;height:40px;" value="Back" onclick="window.history.back();">
-</body>
-</html>

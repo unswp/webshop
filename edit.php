@@ -1,14 +1,14 @@
+<?php include 'incl.php'; ?>
 <?php
 $name = $_REQUEST['name'];
-if (file_exists('noedit')) {} else {
 $content = file_get_contents($name);
 ?>
 <html>
 <head>
+<?php include 'libs.php'; ?>
 <title>Text Editor</title>
-<?php include 'incl.php'; ?>
-<link rel="shortcut icon" href="hsis.png?rev=<?=time();?>" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="hgui.css?rev=<?=time();?>">
+<link rel="shortcut icon" href="edit.png?rev=<?=time();?>" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="<?=$viewmode.'.css';?>?rev=<?=time();?>">
 <script>
   function create() {
   document.getElementById('filename').value = "";
@@ -129,4 +129,3 @@ function info(name) {
 </form>
 </body>
 </html>
-<?php } ?>
