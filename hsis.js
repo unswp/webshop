@@ -106,10 +106,24 @@ function execute() {
     };
     xmlhttp.open("GET","gender.php",true);
     xmlhttp.send();
+  } else if (command.value == 'find' || command.value == 'all') {
+    // List all files inside an entity
+    // find // all
+    if (window.XMLHttpRequest) {
+      xmlhttp=new XMLHttpRequest();
+    } else {
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function() {
+      if (this.readyState==4 && this.status==200) {
+        xmlhttp.open("GET","hsis.php?q=",true);
+        xmlhttp.send();
+      }
+    };
+    window.location.href = "hsis.php?q=";
   } else if (command.value == 'dir' || command.value == 'sub') {
     // Lists all subentities inside an entity
     // dir // sub
-    var q = split[1];
     if (window.XMLHttpRequest) {
       xmlhttp=new XMLHttpRequest();
     } else {
