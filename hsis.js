@@ -106,9 +106,11 @@ function execute() {
     };
     xmlhttp.open("GET","gender.php",true);
     xmlhttp.send();
-  } else if (command.value == 'ftkey') {
-    var name = 'ftkey';
-    var content = '';
+  } else if (split[0] == 'alter') {
+    // Get filename display mode alternative
+    // alter
+    var name = 'alter';
+    var content = split[1];
     var dataString = 'name=' + name + '&content=' + content;
     $.ajax({
       type: "POST",
