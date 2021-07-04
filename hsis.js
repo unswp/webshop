@@ -106,6 +106,18 @@ function execute() {
     };
     xmlhttp.open("GET","gender.php",true);
     xmlhttp.send();
+  } else if (command.value == 'ftkey') {
+    var name = 'ftkey';
+    var content = '';
+    var dataString = 'name=' + name + '&content=' + content;
+    $.ajax({
+      type: "POST",
+      url: "write.php",
+      data: dataString,
+      cache: false,
+      success: function(html) {}
+    });
+    return false;
   } else if (command.value == 'find' || command.value == 'all') {
     // List all files inside an entity
     // find // all
