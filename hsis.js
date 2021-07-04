@@ -106,9 +106,9 @@ function execute() {
     };
     xmlhttp.open("GET","gender.php",true);
     xmlhttp.send();
-  } else if (command.value == 'default') {
-    // Get filename display default mode
-    // default
+  } else if (command.value == 'alter') {
+    // Get filename display standard mode
+    // alter
     var name = 'alter';
     if (window.XMLHttpRequest) {
       xmlhttp=new XMLHttpRequest();
@@ -122,20 +122,6 @@ function execute() {
     }
     xmlhttp.open("POST","delete.php?name="+name,true);
     xmlhttp.send();
-  } else if (command.value == 'alter') {
-    // Get filename display standard mode
-    // alter
-    var name = 'alter';
-    var content = '';
-    var dataString = 'name=' + name + '&content=' + content;
-    $.ajax({
-      type: "POST",
-      url: "write.php",
-      data: dataString,
-      cache: false,
-      success: function(html) {}
-    });
-    return false;
   } else if (split[0] == 'alter') {
     // Get filename display mode alternative
     // alter dispmode
@@ -147,7 +133,7 @@ function execute() {
       url: "write.php",
       data: dataString,
       cache: false,
-      success: function(html) {}
+      success: function(html) {window.location.reload();}
     });
     return false;
   } else if (command.value == 'find' || command.value == 'all') {
