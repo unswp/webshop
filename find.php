@@ -7,6 +7,9 @@ if ($mimetype == "inode/directory" || $mimetype == "directory") {
     if (file_exists($value.'/favicon.png')) {
         $icon = $value.'/favicon.png';
         $type = 'directory';
+    } elseif (file_exists($value.'/ft.self.png') && file_exists($value.'/ftkey')) {
+        $icon = $value.'/ft.self.png';
+        $type = 'directory';
     } else {
         $icon = 'directory.png';
         $type = 'directory';
