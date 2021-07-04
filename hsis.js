@@ -106,9 +106,39 @@ function execute() {
     };
     xmlhttp.open("GET","gender.php",true);
     xmlhttp.send();
+  } else if (command.value == 'default') {
+    // Get filename display default mode
+    // default
+    var name = 'alter';
+    if (window.XMLHttpRequest) {
+      xmlhttp=new XMLHttpRequest();
+    } else {
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function() {
+      if (this.readyState==4 && this.status==200) {
+        document.location.reload();
+      }
+    }
+    xmlhttp.open("POST","delete.php?name="+name,true);
+    xmlhttp.send();
+  } else if (command.value == 'alter') {
+    // Get filename display standard mode
+    // alter
+    var name = 'alter';
+    var content = '';
+    var dataString = 'name=' + name + '&content=' + content;
+    $.ajax({
+      type: "POST",
+      url: "write.php",
+      data: dataString,
+      cache: false,
+      success: function(html) {}
+    });
+    return false;
   } else if (split[0] == 'alter') {
     // Get filename display mode alternative
-    // alter
+    // alter dispmode
     var name = 'alter';
     var content = split[1];
     var dataString = 'name=' + name + '&content=' + content;

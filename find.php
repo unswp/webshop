@@ -5,23 +5,38 @@ $pathinfo = pathinfo($value);
 $extension = $pathinfo['extension'];
 if ($mimetype == "inode/directory" || $mimetype == "directory") {
     if (file_exists('alter')) {
-        $alter = file_get_contents('alter')
+        $alter = file_get_contents('alter');
         if ($alter != '') {
-            if ($alter == '7887') {
+            if ($alter == 'feet') {
                 if (file_exists($value.'/ft.self.png')) {
                     $icon = $value.'/ft.self.png';
+                    $type = 'directory';
+                } else {
+                    if (file_exists($value.'/favicon.png')) {
+                        $icon = $value.'/favicon.png';
+                        $type = 'directory';
+                    } else {
+                        $icon = 'directory.png';
+                        $type = 'directory';
+                    }
+                }
+            } else {
+                if (file_exists($value.'/favicon.png')) {
+                    $icon = $value.'/favicon.png';
                     $type = 'directory';
                 } else {
                     $icon = 'directory.png';
                     $type = 'directory';
                 }
+            }
+        } elseif ($alter == '') {
+            if (file_exists($value.'/favicon.png')) {
+                $icon = $value.'/favicon.png';
+                $type = 'directory';
             } else {
                 $icon = 'directory.png';
                 $type = 'directory';
             }
-        } elseif ($alter == '') {
-            $icon = 'directory.png';
-            $type = 'directory';
         }
     } else {
         if (file_exists($value.'/favicon.png')) {
