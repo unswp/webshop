@@ -7,7 +7,20 @@ if ($mimetype == "inode/directory" || $mimetype == "directory") {
     if (file_exists('alter')) {
         $alter = file_get_contents('alter');
         if ($alter != '') {
-            if ($alter == 'feet') {
+            if ($alter == 'flag') {
+                if (file_exists($value.'/flag.png')) {
+                    $icon = $value.'/flag.png';
+                    $type = 'directory';
+                } else {
+                    if (file_exists($value.'/favicon.png')) {
+                        $icon = $value.'/favicon.png';
+                        $type = 'directory';
+                    } else {
+                        $icon = 'directory.png';
+                        $type = 'directory';
+                    }
+                }
+            } elseif ($alter == 'feet') {
                 if (file_exists($value.'/ft.self.png')) {
                     $icon = $value.'/ft.self.png';
                     $type = 'directory';
