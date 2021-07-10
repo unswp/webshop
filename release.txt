@@ -1,1 +1,1 @@
-Base HSIS system of Webshop is updated. =//= New, redefined, more compact interface. =//= Background changer integrated in Pictures app. =//= Removed obsolete interface elements.
+Base HSIS system was detached from this package and will be downloaded separately after installing this package. =//= Now you can easily access HSIS console from main menu.
